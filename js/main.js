@@ -57,6 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "opacity-0",
       "pointer-events-none",
     );
+
     modal.classList.add("opacity-100");
 
     // Set the starting position
@@ -70,7 +71,8 @@ document.addEventListener("DOMContentLoaded", () => {
     modalPanel.classList.remove("translate-y-full", "opacity-0");
     modalPanel.classList.add("translate-y-0", "opacity-100");
 
-    document.body.style.overflow = "hidden";
+    // Keep the homepage scrollbar available.
+    // Do not set body overflow to hidden.
   }
 
   // Close modal: slide down
@@ -90,7 +92,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     closeTimer = setTimeout(() => {
       modal.classList.add("invisible");
-      document.body.style.overflow = "";
       closeTimer = null;
     }, 500);
   }
