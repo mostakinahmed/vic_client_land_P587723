@@ -188,7 +188,7 @@
                                 </svg>
                             </button>
 
-                         
+
 
                             <!-- Slider Dots -->
                             <div id="product-dots"
@@ -259,9 +259,10 @@
 
                                     thumbs.forEach((thumb, n) => {
                                         thumb.classList.toggle('border-emerald-300', n === index);
-                                        thumb.classList.toggle('', n === index);
+
                                         thumb.classList.toggle('border-slate-200', n !== index);
                                         thumb.classList.toggle('bg-white', n !== index);
+                                        thumb.classList.toggle('bg-white', n == index);
                                         thumb.setAttribute('aria-pressed', n === index ? 'true' : 'false');
 
                                         const label = thumb.querySelector('span');
