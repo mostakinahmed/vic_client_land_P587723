@@ -104,143 +104,371 @@
                     class="absolute -bottom-24 -left-24 w-80 h-80 bg-amber-200/50 rounded-full blur-3xl pointer-events-none">
                 </div>
 
-                <div class="relative grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+                <div class="relative md:-mt-6 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 
-                    <!-- বাম: ছবি -->
-                    <div class="lg:col-span-5 md:-mt-20 space-y-5">
-                        <div
-                            class="relative bg-gradient-to-br from-emerald-50 via-white to-amber-50 border border-emerald-100 md:rounded-3xl   flex items-center justify-center min-h-[380px] lg:min-h-[470px] group">
+                    <!-- বাম: ছবি ও গ্যালারি স্লাইডার (lg:col-span-5 ফিক্সড) -->
+                    <div class="w-full lg:col-span-5 space-y-4">
+
+                        <!-- Main Product Slider -->
+                        <div id="product-slider"
+                            class="relative isolate overflow-hidden md:rounded-3xl border md:border-slate-200 border-slate-200/80 bg-white">
+
+                            <!-- Top Badges -->
+                            <div class="absolute top-3 left-3 md:top-5 md:left-5 z-20 flex flex-col items-start gap-2">
+                                <span
+                                    class="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-red-600 to-rose-500 px-3 py-1.5 text-[12px] md:text-xs font-extrabold text-white shadow-lg shadow-red-500/20">
+
+                                    ৩০% ধামাকা ছাড়
+                                </span>
+
+                            </div>
+
+                            <!-- Audio Badge -->
+                            <div class="absolute top-3 right-3 md:top-5 md:right-5 z-20">
+                                <span
+                                    class="inline-flex items-center gap-1.5 rounded-full border border-emerald-100 bg-white/90 px-3 py-1.5 text-[10px] md:text-xs font-bold text-emerald-700 shadow-sm backdrop-blur">
+                                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="1.8">
+                                        <path d="M9 18V5l12-2v13" />
+                                        <circle cx="6" cy="18" r="3" />
+                                        <circle cx="18" cy="16" r="3" />
+                                    </svg>
+                                    Hi-Fi Audio
+                                </span>
+                            </div>
+
+                            <!-- Image Track -->
+                            <div id="product-slider-track"
+                                class="flex -mt-8 items-center transition-transform duration-500 ease-out"
+                                style="touch-action: pan-y;">
+
+                                <!-- Product Image 1 -->
+                                <div
+                                    class="flex w-full shrink-0 items-center justify-center px-8 pt-16 pb-14 sm:px-12 sm:pt-20 sm:pb-16">
+                                    <img src="https://api.victusbyte.com/upload/image/hoco_eq34plus/353553.webp"
+                                        alt="HOCO EQ34 Plus ANC ইয়ারবাডস" draggable="false"
+                                        class="pointer-events-none h-60 w-full max-w-[300px] object-contain sm:h-80 md:h-[360px]"
+                                        onerror="this.src='https://placehold.co/600x600/ecfdf5/059669?text=HOCO+EQ34+Plus'">
+                                </div>
+
+                                <!-- Product Image 2 -->
+                                <div
+                                    class="flex w-full shrink-0 items-center justify-center px-8 pt-16 pb-14 sm:px-12 sm:pt-20 sm:pb-16">
+                                    <img src="https://static-01.daraz.com.bd/p/10aa7474ccc03197cda54fbb6108582e.png"
+                                        alt="HOCO EQ34 Plus চার্জিং কেস" draggable="false"
+                                        class="pointer-events-none h-60 w-full max-w-[300px] object-contain sm:h-80 md:h-[360px] "
+                                        onerror="this.src='https://placehold.co/600x600/ecfdf5/059669?text=Charging+Case'">
+                                </div>
+
+                                <!-- Product Image 3 -->
+                                <div
+                                    class="flex w-full shrink-0 items-center justify-center px-8 pt-16 pb-14 sm:px-12 sm:pt-20 sm:pb-16">
+                                    <img src="https://img.myipadbox.com/upload/store/detail_l/EDA008768601A_1.jpg"
+                                        alt="HOCO EQ34 Plus বক্স প্যাকেজ" draggable="false"
+                                        class="pointer-events-none h-60 w-full max-w-[300px] object-contain sm:h-80 md:h-[360px]"
+                                        onerror="this.src='https://placehold.co/600x600/ecfdf5/059669?text=Product+Box'">
+                                </div>
+                            </div>
+
+                            <!-- Previous Arrow -->
+                            <button type="button" id="product-prev" aria-label="Previous image"
+                                class="absolute left-3 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/90 text-slate-600 shadow-md backdrop-blur transition hover:border-emerald-500 hover:bg-emerald-600 hover:text-white active:scale-95 md:left-4 md:h-11 md:w-11">
+                                <svg class="h-4 w-4 md:h-5 md:w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="m15 18-6-6 6-6" />
+                                </svg>
+                            </button>
+
+                            <!-- Next Arrow -->
+                            <button type="button" id="product-next" aria-label="Next image"
+                                class="absolute right-3 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/90 text-slate-600 shadow-md backdrop-blur transition hover:border-emerald-500 hover:bg-emerald-600 hover:text-white active:scale-95 md:right-4 md:h-11 md:w-11">
+                                <svg class="h-4 w-4 md:h-5 md:w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="m9 18 6-6-6-6" />
+                                </svg>
+                            </button>
+
+                            <!-- Bottom Image Counter -->
                             <div
-                                class="absolute top-4 left-4 bg-gradient-to-r from-red-600 to-rose-600 text-white text-sm font-extrabold px-4 py-1.5 rounded-full shadow-lg">
-                                ৩০% ধামাকা ছাড়</div>
-                            <div
-                                class="absolute top-4 mb-3 md:mb-0 right-4 bg-white border border-emerald-200 text-emerald-700 text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">
-                                🎧 Hi-Fi অডিও</div>
-                            <img id="main-product-img"
-                                src="https://api.victusbyte.com/upload/image/hoco_eq34plus/353553.webp"
-                                alt="HOCO EQ34 Plus ANC ইয়ারবাডস"
-                                class="w-72 h-72 mt-6 md:mt-0 sm:w-80 sm:h-80 object-contain rounded-3xl drop-shadow-[0_25px_30px_rgba(16,185,129,0.25)]"
-                                onerror="this.src='https://placehold.co/600x600/ecfdf5/059669?text=HOCO+EQ34+Plus'" />
+                                class="absolute bottom-4 right-4 z-20 rounded-full border border-white/80 bg-white/85 px-3 py-1 text-[11px] font-bold text-slate-600 shadow-sm backdrop-blur">
+                                <span id="product-current">01</span>
+                                <span class="mx-1 text-slate-300">/</span>
+                                <span>03</span>
+                            </div>
+
+                            <!-- Slider Dots -->
+                            <div id="product-dots"
+                                class="absolute bottom-5 left-1/2 z-20 flex -translate-x-1/2 items-center gap-1.5">
+                                <button type="button" aria-label="Show image 1"
+                                    class="h-2 w-6 rounded-full bg-emerald-600 transition-all duration-300"></button>
+                                <button type="button" aria-label="Show image 2"
+                                    class="h-2 w-2 rounded-full bg-slate-300 transition-all duration-300"></button>
+                                <button type="button" aria-label="Show image 3"
+                                    class="h-2 w-2 rounded-full bg-slate-300 transition-all duration-300"></button>
+                            </div>
                         </div>
-                        <div class="flex justify-between gap-3 px-4 md:px-10 md:p-0">
-                            <button type="button" data-thumb="assets/images/hero.webp"
-                                class="thumb h-24 w-28 rounded-2xl border-2 border-emerald-500 bg-white md:p-2 p-1 flex items-center justify-center transition">
+
+                        <!-- Thumbnail Gallery -->
+                        <div class="grid grid-cols-3 gap-3 px-3 md:px-0 sm:gap-4">
+                            <button type="button" data-slide="0"
+                                class="product-thumb group relative bg-white flex h-20 items-center justify-center overflow-hidden rounded-xl border-2 border-emerald-500 bg-emerald-50/50 p-2 transition-all duration-200 sm:h-24 md:h-28">
                                 <img src="https://api.victusbyte.com/upload/image/hoco_eq34plus/353553.webp"
-                                    alt="ইয়ারবাডস" class="h-full object-contain"
-                                    onerror="this.src='https://api.victusbyte.com/upload/image/hoco_eq34plus/353553.webp'" />
+                                    alt="ইয়ারবাডস"
+                                    class="h-full w-full object-contain transition duration-300 group-hover:scale-105">
+
                             </button>
-                            <button type="button" data-thumb="assets/images/case.webp"
-                                class="thumb h-24 w-28 rounded-2xl border border-slate-200 hover:border-emerald-400 bg-white md:p-2 p-1  flex items-center justify-center transition">
+
+                            <button type="button" data-slide="1"
+                                class="product-thumb group relative flex h-20 items-center justify-center overflow-hidden rounded-xl border-2 border-slate-200 bg-white p-2 transition-all duration-200 hover:border-emerald-300 sm:h-24 md:h-28">
                                 <img src="https://static-01.daraz.com.bd/p/10aa7474ccc03197cda54fbb6108582e.png"
-                                    alt="চার্জিং কেস" class="h-full object-contain"
-                                    onerror="this.src='https://placehold.co/120x120/ecfdf5/059669?text=Case'" />
+                                    alt="চার্জিং কেস"
+                                    class="h-full w-full object-contain transition duration-300 group-hover:scale-105">
+
                             </button>
-                            <button type="button" data-thumb="assets/images/box.webp"
-                                class="thumb h-24 w-28 rounded-2xl border border-slate-200 hover:border-emerald-400 bg-white md:p-2 p-1  flex items-center justify-center transition">
+
+                            <button type="button" data-slide="2"
+                                class="product-thumb group relative flex h-20 items-center justify-center overflow-hidden rounded-xl border-2 border-slate-200 bg-white p-2 transition-all duration-200 hover:border-emerald-300 sm:h-24 md:h-28">
                                 <img src="https://img.myipadbox.com/upload/store/detail_l/EDA008768601A_1.jpg"
-                                    alt="বক্স প্যাকেজ" class="h-full object-contain"
-                                    onerror="this.src='https://placehold.co/120x120/ecfdf5/059669?text=Box'" />
+                                    alt="বক্স প্যাকেজ"
+                                    class="h-full w-full object-contain transition duration-300 group-hover:scale-105">
+
                             </button>
                         </div>
+
+                        <!-- Slider Script -->
+                        <script>
+                            (() => {
+                                const slider = document.getElementById('product-slider');
+                                const track = document.getElementById('product-slider-track');
+                                const dots = [...document.querySelectorAll('#product-dots button')];
+                                const thumbs = [...document.querySelectorAll('.product-thumb')];
+                                const counter = document.getElementById('product-current');
+                                const slides = [...track.children];
+
+                                if (!slider || !track || slides.length === 0) return;
+
+                                let index = 0;
+                                let startX = 0;
+                                let deltaX = 0;
+                                let dragging = false;
+                                let timer;
+
+                                function showSlide(i) {
+                                    index = (i + slides.length) % slides.length;
+                                    track.style.transform = `translateX(-${index * 100}%)`;
+
+                                    dots.forEach((dot, n) => {
+                                        dot.className = n === index
+                                            ? 'h-2 w-6 rounded-full bg-emerald-600 transition-all duration-300'
+                                            : 'h-2 w-2 rounded-full bg-slate-300 transition-all duration-300';
+                                    });
+
+                                    thumbs.forEach((thumb, n) => {
+                                        thumb.classList.toggle('border-emerald-500', n === index);
+                                        thumb.classList.toggle('bg-emerald-50/50', n === index);
+                                        thumb.classList.toggle('border-slate-200', n !== index);
+                                        thumb.classList.toggle('bg-white', n !== index);
+                                        thumb.setAttribute('aria-pressed', n === index ? 'true' : 'false');
+
+                                        const label = thumb.querySelector('span');
+                                        if (label) {
+                                            label.classList.toggle('bg-emerald-600', n === index);
+                                            label.classList.toggle('text-white', n === index);
+                                            label.classList.toggle('bg-white/95', n !== index);
+                                            label.classList.toggle('text-slate-600', n !== index);
+                                        }
+                                    });
+
+                                    if (counter) counter.textContent = String(index + 1).padStart(2, '0');
+                                }
+
+                                function stopAuto() {
+                                    clearInterval(timer);
+                                }
+
+                                function startAuto() {
+                                    stopAuto();
+                                    timer = setInterval(() => showSlide(index + 1), 3500);
+                                }
+
+                                function interact(action) {
+                                    action();
+                                    startAuto();
+                                }
+
+                                document.getElementById('product-prev').addEventListener('click', () =>
+                                    interact(() => showSlide(index - 1))
+                                );
+
+                                document.getElementById('product-next').addEventListener('click', () =>
+                                    interact(() => showSlide(index + 1))
+                                );
+
+                                dots.forEach((dot, i) => {
+                                    dot.addEventListener('click', () => interact(() => showSlide(i)));
+                                });
+
+                                thumbs.forEach((thumb, i) => {
+                                    thumb.addEventListener('click', () => interact(() => showSlide(i)));
+                                });
+
+                                track.addEventListener('pointerdown', e => {
+                                    if (e.pointerType === 'mouse' && e.button !== 0) return;
+
+                                    startX = e.clientX;
+                                    deltaX = 0;
+                                    dragging = true;
+                                    stopAuto();
+                                    track.style.transition = 'none';
+
+                                    if (e.pointerType === 'mouse') {
+                                        track.setPointerCapture(e.pointerId);
+                                    }
+                                });
+
+                                track.addEventListener('pointermove', e => {
+                                    if (!dragging) return;
+                                    deltaX = e.clientX - startX;
+                                    track.style.transform = `translateX(calc(${-index * 100}% + ${deltaX}px))`;
+                                });
+
+                                function endSwipe() {
+                                    if (!dragging) return;
+                                    dragging = false;
+                                    track.style.transition = '';
+
+                                    if (deltaX < -50) showSlide(index + 1);
+                                    else if (deltaX > 50) showSlide(index - 1);
+                                    else showSlide(index);
+
+                                    startAuto();
+                                }
+
+                                track.addEventListener('pointerup', endSwipe);
+                                track.addEventListener('pointercancel', endSwipe);
+
+                                slider.addEventListener('mouseenter', stopAuto);
+                                slider.addEventListener('mouseleave', startAuto);
+
+                                document.addEventListener('visibilitychange', () => {
+                                    if (document.hidden) stopAuto();
+                                    else startAuto();
+                                });
+
+                                showSlide(0);
+                                startAuto();
+                            })();
+                        </script>
                     </div>
 
                     <!-- ডান: বিস্তারিত ও কেনার বক্স -->
-                    <div class="lg:col-span-7 space-y-6 md:p-0 p-3">
-                        <div class="space-y-3">
+                    <div class="w-full lg:col-span-7 space-y-6 px-3 md:px-0 pb-3">
+                        <div class="space-y-3 -mt-3 md:mt-0">
                             <div
-                                class="inline-flex hidden items-center gap-2 px-4 py-1.5 rounded-full text-sm font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
-                                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+                                class="inline-flex hidden items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
                                 ইন-স্টক • আসল গ্যাজেটের নিশ্চয়তা
                             </div>
-                            <h1 class="text-3xl md:text-4xl font-black text-slate-900 leading-tight">
-                                HOCO EQ34 Plus ANC <br class="hidden sm:inline" />
+
+                            <h1 class="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 leading-tight">
+                                HOCO EQ34 Plus ANC <br />
                                 <span
-                                    class=" text-xl md:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-500 to-cyan-600">অ্যাক্টিভ
-                                    নয়েজ ক্যান্সেলেশন ইয়ারবাডস</span>
+                                    class="text-xl sm:text-2xl md:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-500 to-cyan-600">
+                                    অ্যাক্টিভ নয়েজ ক্যান্সেলেশন ইয়ারবাডস
+                                </span>
                             </h1>
-                            <p class="text-slate-700 text-base sm:text-lg leading-relaxed">
+
+                            <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
                                 বাইরের শব্দ বন্ধ, গানে ডুবে যান। গভীর বেস, পরিষ্কার কলিং আর টানা ২৮ ঘণ্টা ব্যাকআপ — সব
                                 একসাথে, বাজেট দামে।
                             </p>
-                            <div class="flex flex-wrap items-center gap-3">
-                                <div class="text-amber-500 text-lg">★★★★★</div>
-                                <span class="text-sm sm:text-base text-slate-600 font-semibold">৪.৯/৫ রেটিং (৭৫০+
-                                    সন্তুষ্ট গ্রাহক)</span>
+
+                            <div class="flex items-center gap-2">
+                                <div class="text-amber-500 text-base">★★★★★</div>
+                                <span class="text-xs sm:text-sm text-slate-600 font-semibold">৪.৯/৫ রেটিং (৭৫০+ সন্তুষ্ট
+                                    গ্রাহক)</span>
                             </div>
                         </div>
 
                         <!-- কী কী পাচ্ছেন -->
-                        <ul
-                            class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-sm sm:text-base font-medium text-black/70">
-                            <li class="flex gap-2"><span class="text-emerald-600">✔</span> ৩৫dB পর্যন্ত অ্যাক্টিভ নয়েজ
-                                ক্যান্সেলেশন</li>
-                            <li class="flex gap-2"><span class="text-emerald-600">✔</span> ১৩mm টাইটানিয়াম বেস ড্রাইভার
+                        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-sm font-medium text-slate-700">
+                            <li class="flex items-center gap-2">
+                                <span class="flex-shrink-0 text-emerald-600">✔</span> ৩৫dB পর্যন্ত অ্যাক্টিভ নয়েজ
+                                ক্যান্সেলেশন
                             </li>
-                            <li class="flex gap-2"><span class="text-emerald-600">✔</span> ব্লুটুথ ৫.৪ — লো-ল্যাগ গেমিং
+                            <li class="flex items-center gap-2">
+                                <span class="flex-shrink-0 text-emerald-600">✔</span> ১৩mm টাইটানিয়াম বেস ড্রাইভার
                             </li>
-                            <li class="flex gap-2"><span class="text-emerald-600">✔</span> ENC ক্রিস্টাল ক্লিয়ার কলিং
+                            <li class="flex items-center gap-2">
+                                <span class="flex-shrink-0 text-emerald-600">✔</span> ব্লুটুথ ৫.৪ — লো-ল্যাগ গেমিং
                             </li>
-                            <li class="flex gap-2"><span class="text-emerald-600">✔</span> কেস সহ টানা ২৮ ঘণ্টা
-                                প্লেব্যাক</li>
-                            <li class="flex gap-2"><span class="text-emerald-600">✔</span> টাইপ-সি ফাস্ট চার্জিং</li>
+                            <li class="flex items-center gap-2">
+                                <span class="flex-shrink-0 text-emerald-600">✔</span> ENC ক্রিস্টাল ক্লিয়ার কলিং
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="flex-shrink-0 text-emerald-600">✔</span> কেস সহ টানা ২৮ ঘণ্টা প্লেব্যাক
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="flex-shrink-0 text-emerald-600">✔</span> টাইপ-সি ফাস্ট চার্জিং
+                            </li>
                         </ul>
 
                         <!-- প্রাইস বক্স -->
                         <div
-                            class="p-6 bg-gradient-to-br from-amber-50 to-emerald-50 rounded-3xl border-2 border-dashed border-amber-400 flex flex-wrap items-center justify-between gap-4">
+                            class="p-5 sm:p-6 bg-gradient-to-br from-amber-50/80 to-emerald-50/80 rounded-2xl md:rounded-3xl border-2 border-dashed border-amber-300 flex items-center justify-between gap-4">
                             <div>
-                                <span class="text-sm font-bold text-slate-500 block mb-1">স্পেশাল অফার প্রাইজ</span>
-                                <div class="flex items-baseline gap-3">
-                                    <span class="text-4xl sm:text-5xl font-black text-emerald-600">৳690</span>
-                                    <span class="text-xl sm:text-2xl text-slate-400 line-through">৳985</span>
+                                <span class="text-sm font-bold text-slate-500 block mb-1">স্পেশাল অফার
+                                    প্রাইজ</span>
+                                <div class="flex items-baseline gap-2.5">
+                                    <span class="text-3xl sm:text-4xl font-black text-emerald-600">৳690</span>
+                                    <span class="text-lg sm:text-xl text-slate-400 line-through">৳985</span>
                                 </div>
                             </div>
                             <div
-                                class="bg-white border border-emerald-200 px-5 py-2.5 rounded-2xl text-center shadow-sm">
+                                class="bg-white border border-emerald-200 px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl md:rounded-2xl text-center shadow-sm">
                                 <span class="text-xs text-slate-500 block">আপনার সাশ্রয়</span>
-                                <span class="text-xl font-extrabold text-rose-600">৳295 টাকা</span>
+                                <span class="text-base sm:text-lg font-extrabold text-rose-600">৳295 টাকা</span>
                             </div>
                         </div>
 
                         <!-- স্টক আর্জেন্সি -->
-                        <div class="bg-rose-50 border border-rose-200 rounded-2xl p-4">
-                            <div class="flex justify-between text-sm font-bold text-rose-700 mb-2">
-                                <span>⚡ স্টক দ্রুত শেষ হচ্ছে</span><span>মাত্র কয়েকটি বাকি</span>
+                        <div class="bg-rose-50/80 border border-rose-200 rounded-2xl p-3.5 sm:p-4">
+                            <div class="flex justify-between text-xs sm:text-sm font-bold text-rose-700 mb-2">
+                                <span>⚡ স্টক দ্রুত শেষ হচ্ছে</span>
+                                <span>মাত্র কয়েকটি বাকি</span>
                             </div>
-                            <div class="w-full h-3 bg-rose-100 rounded-full overflow-hidden">
+                            <div class="w-full h-2.5 bg-rose-100 rounded-full overflow-hidden">
                                 <div class="h-full w-[82%] bg-gradient-to-r from-rose-500 to-red-600 rounded-full">
                                 </div>
                             </div>
                         </div>
 
-                        <!-- CTA -->
-                        <div class="space-y-4">
-
+                        <!-- CTA বাটন সেকশন -->
+                        <div class="space-y-3 pt-1">
                             <button type="button"
-                                class="open-modal-trigger hidden md:flex w-full bg-[#f66107] hover:bg-[#d94e00] active:scale-[0.99] text-white font-black py-3 px-8 rounded-2xl text-lg sm:text-xl shadow-xl shadow-orange-600/30 transition-all duration-300 items-center justify-center gap-3">
-
-                                <img class="h-8 w-auto"
-                                    src="https://7vgva7cju0vcfvwf.public.blob.vercel-storage.com/add-to-cart%20%281%29.png"
-                                    alt="" />
-                                এখনই অর্ডার করুন (ক্যাশ অন ডেলিভারি)
+                                class="open-modal-trigger w-full bg-[#f66107] hover:bg-[#d94e00] active:scale-[0.99] text-white font-black py-3 px-6 rounded-2xl text-lg sm:text-xl shadow-lg shadow-orange-600/25 transition-all duration-200 flex items-center justify-center gap-3">
+                                <svg class="h-6 w-6 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+                                    <circle cx="9" cy="21" r="1"></circle>
+                                    <circle cx="20" cy="21" r="1"></circle>
+                                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                                </svg>
+                                <span class="hidden md:block">এখনই অর্ডার করুন (ক্যাশ অন ডেলিভারি)</span>
+                                <span class="md:hidden">এখনই অর্ডার করুন</span>
                             </button>
 
 
-                            <button type="button"
-                                class="open-modal-trigger md:hidden w-full bg-[#f66107] hover:from-[#c26a05] hover:to-[#a97520] active:scale-[0.99] text-white font-black py-3  px-8 rounded-2xl text-lg sm:text-xl md:shadow-lg shadow-md shadow-amber-600/30 transition flex items-center justify-center gap-3">
-                                🛒 এখনই অর্ডার করুন
-                            </button>
 
                             <div
-                                class="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-xs sm:text-sm text-slate-500">
-                                <span>🔒 কোনো অগ্রিম টাকা লাগবে না</span><span>•</span><span>প্রোডাক্ট হাতে পেয়ে টাকা
-                                    দিন</span>
+                                class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs sm:text-sm text-slate-500 font-medium">
+                                <span>🔒 কোনো অগ্রিম টাকা লাগবে না</span>
+                                <span>•</span>
+                                <span>প্রোডাক্ট হাতে পেয়ে টাকা দিন</span>
                             </div>
                         </div>
 
-
                     </div>
                 </div>
+
             </section>
 
             <!-- ============ ২. ট্রাস্ট স্ট্রিপ ============ -->
@@ -1038,7 +1266,7 @@
                                 </span>
 
                                 <span id="product-subtotal" class="font-bold text-stone-800">
-                                     ৳৬৯০
+                                    ৳৬৯০
                                 </span>
                             </div>
                         </div>
@@ -1206,7 +1434,8 @@
                 <!-- Agreement & Submit -->
                 <div class="space-y-3 pt-2 pb-6">
 
-                    <label class="flex items-start gap-2 md:text-base text-sm text-stone-600 cursor-pointer select-none">
+                    <label
+                        class="flex items-start gap-2 md:text-base text-sm text-stone-600 cursor-pointer select-none">
                         <input type="checkbox" required checked
                             class="w-4 h-4 mt-0.5 rounded text-emerald-600 focus:ring-0 border-stone-300 shrink-0" />
 
