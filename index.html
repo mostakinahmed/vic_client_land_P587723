@@ -265,13 +265,7 @@
                                         thumb.classList.toggle('bg-white', n == index);
                                         thumb.setAttribute('aria-pressed', n === index ? 'true' : 'false');
 
-                                        const label = thumb.querySelector('span');
-                                        if (label) {
-                                            label.classList.toggle('', n === index);
-                                            label.classList.toggle('text-white', n === index);
-                                            label.classList.toggle('bg-white', n !== index);
-                                            label.classList.toggle('text-slate-600', n !== index);
-                                        }
+
                                     });
 
                                     if (counter) counter.textContent = String(index + 1).padStart(2, '0');
@@ -283,7 +277,7 @@
 
                                 function startAuto() {
                                     stopAuto();
-                                    timer = setInterval(() => showSlide(index + 1), 3500);
+                                    timer = setInterval(() => showSlide(index + 1), 2500);
                                 }
 
                                 function interact(action) {
@@ -1150,13 +1144,13 @@
 
     <!-- Sticky Mobile Bottom CTA -->
     <div
-        class="fixed bottom-0 inset-x-0 bg-slate-900/95 backdrop-blur border-t border-slate-800 px-5 py-2.5 z-40 md:hidden flex items-center justify-between  shadow-2xl">
+        class="fixed bottom-0 inset-x-0 bg-slate-900/95 backdrop-blur border-t border-slate-800 px-5 py-2 z-40 md:hidden flex items-center justify-between  shadow-2xl">
         <div>
             <span class="text-[12px] -mb-1 text-slate-400 block">অফার প্রাইস</span>
             <span class="text-lg font-black text-emerald-400 tracking-wider">৳৬৯০</span>
         </div>
         <button type="button"
-            class="open-modal-trigger bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-6 py-2 rounded-xl text-md transition shadow-lg shadow-emerald-500/20 active:scale-95">
+            class="open-modal-trigger bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-4 py-1.5 rounded-xl text-md transition shadow-lg shadow-emerald-500/20 active:scale-95">
             অর্ডার করুন
         </button>
     </div>
